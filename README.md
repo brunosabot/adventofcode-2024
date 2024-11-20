@@ -3,7 +3,7 @@
 ## Start A New Day
 
 ```
-npx hygen new day 1
+npx hygen new day --day 1
 ```
 
 ## Run the tests
