@@ -5,12 +5,13 @@ import fs from "fs";
 import { describe, expect, it } from "vitest";
 import { main } from "./part-2.ts";
 
-const input = fs.readFileSync("./day<%= day %>/input-2.txt").toString();
+const exampleInput = ``;
 
 describe("Day <%= day %> Part 2", () => {
   describe("Test the global main function", () => {
     it("should return true", () => {
-      expect(main(input)).resolves.toBe(true);
+      const result = await main(exampleInput);
+      expect(result).toBe(true);
     });
   });
 });
