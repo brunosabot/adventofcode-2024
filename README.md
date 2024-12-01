@@ -17,11 +17,11 @@ npm run test
 Run all the day
 
 ```
-node --experimental-strip-types --experimental-transform-types index.ts 1
+pnpm run day 1
 ```
 
 Run a specific part of a day
 
 ```
-node --experimental-strip-types --experimental-transform-types index.ts 1 1
+pnpm run day 1 1
 ```
