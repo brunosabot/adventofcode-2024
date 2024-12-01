@@ -23,7 +23,8 @@ const withTimer = async (
   );
 };
 
-const getInputDay = (day: number) => fs.readFileSync(`./day${day}/input-1.txt`);
+const getInputDay = (day: number, part: number) =>
+  fs.readFileSync(`./day${day}/input-${part}.txt`);
 const getScriptFile = (day: number, part: number) =>
   `./day${day}/part-${part}.ts`;
 
@@ -33,19 +34,15 @@ if (process.env.NODE_ENV !== "test") {
     const part = +(process.argv[3] ?? "0");
 
     if (part === 0 || part === 1) {
-      const inputBuffer = getInputDay(day);
-
-      import(getScriptFile(day, 1)).then(({ main }) => {
-        withTimer(main, inputBuffer.toString(), day, 1);
-      });
+      const inputBuffer = getInputDay(day, 1);
+      const { main } = await import(getScriptFile(day, 1));
+      withTimer(main, inputBuffer.toString(), day, 1);
     }
 
     if (part === 0 || part === 2) {
-      const inputBuffer = getInputDay(day);
-
-      import(getScriptFile(day, 2)).then(({ main }) => {
-        withTimer(main, inputBuffer.toString(), day, 2);
-      });
+      const inputBuffer = getInputDay(day, 2);
+      const { main } = await import(getScriptFile(day, 2));
+      withTimer(main, inputBuffer.toString(), day, 2);
     }
   })();
 }
